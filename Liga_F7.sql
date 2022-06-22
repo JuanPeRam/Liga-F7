@@ -39,7 +39,7 @@ CREATE TABLE Partidos (
     Id_Competicion INT NOT NULL,
     Equipo_Local VARCHAR(50) NOT NULL,
     Equipo_Visitante VARCHAR(50) NOT NULL,
-    PRIMARY KEY(Id,Id_Competicion),
+    PRIMARY KEY(Id),
     FOREIGN KEY (Id_Competicion) REFERENCES Competiciones(Id),
     FOREIGN KEY (Equipo_Local) REFERENCES Equipos(Nombre),
     FOREIGN KEY (Equipo_Visitante) REFERENCES Equipos(Nombre)
