@@ -52,8 +52,7 @@ CREATE TABLE Stats (
     Num_Jugador INT NOT NULL,
     Id_partido INT NOT NULL,
     Competicion INT NOT NULL,
-    PRIMARY KEY(Num_Jugador,Id_partido,Competicion),
+    PRIMARY KEY(Num_Jugador,Id_partido),
     FOREIGN KEY (Num_Jugador) REFERENCES Jugadores(Id),
-    FOREIGN KEY (Competicion) REFERENCES Partidos(Id_Competicion),
     FOREIGN KEY (Id_partido) REFERENCES Partidos(Id)
 );
