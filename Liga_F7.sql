@@ -8,7 +8,7 @@ CREATE TABLE Equipos(
 );
 
 CREATE TABLE Competiciones (
-    Id INT NOT NULL AUTO_INCREMENT,
+    Id INT NOT NULL,
     Temporada VARCHAR(20) NOT NULL,
     Nombre VARCHAR(50) NOT NULL,
     Ganador VARCHAR(20) NULL,
@@ -39,7 +39,7 @@ CREATE TABLE Partidos (
     Id_Competicion INT NOT NULL,
     Equipo_Local VARCHAR(50) NOT NULL,
     Equipo_Visitante VARCHAR(50) NOT NULL,
-    PRIMARY KEY(Id),
+    PRIMARY KEY (Id),
     FOREIGN KEY (Id_Competicion) REFERENCES Competiciones(Id),
     FOREIGN KEY (Equipo_Local) REFERENCES Equipos(Nombre),
     FOREIGN KEY (Equipo_Visitante) REFERENCES Equipos(Nombre)
@@ -51,7 +51,6 @@ CREATE TABLE Stats (
     Tarjeta_roja INT,	
     Num_Jugador INT NOT NULL,
     Id_partido INT NOT NULL,
-    Competicion INT NOT NULL,
     PRIMARY KEY(Num_Jugador,Id_partido),
     FOREIGN KEY (Num_Jugador) REFERENCES Jugadores(Id),
     FOREIGN KEY (Id_partido) REFERENCES Partidos(Id)
