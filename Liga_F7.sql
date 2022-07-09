@@ -1,6 +1,7 @@
 DROP DATABASE IF EXISTS Liga_F7;
 CREATE DATABASE Liga_F7;
 USE Liga_F7;
+
 CREATE TABLE Equipos(
     Nombre VARCHAR(50) NOT NULL,
     Procedencia VARCHAR(50),
@@ -11,7 +12,7 @@ CREATE TABLE Competiciones (
     Id INT NOT NULL,
     Temporada VARCHAR(20) NOT NULL,
     Nombre VARCHAR(50) NOT NULL,
-    Ganador VARCHAR(20) NULL,
+    Ganador VARCHAR(50) NULL,
     PRIMARY KEY (Id),
     FOREIGN KEY (Ganador) REFERENCES Equipos(Nombre)
 );
@@ -26,6 +27,7 @@ CREATE TABLE Participan (
 
 CREATE TABLE Jugadores (
     Id INT NOT NULL,
+    Dorsal INT,
     Temporada VARCHAR(20) NOT NULL,
     Nombre VARCHAR(50) NOT NULL,
     Nombre_Equipo VARCHAR(50) NOT NULL,
@@ -39,6 +41,7 @@ CREATE TABLE Partidos (
     Id_Competicion INT NOT NULL,
     Equipo_Local VARCHAR(50) NOT NULL,
     Equipo_Visitante VARCHAR(50) NOT NULL,
+    Campo INT NULL,
     PRIMARY KEY (Id),
     FOREIGN KEY (Id_Competicion) REFERENCES Competiciones(Id),
     FOREIGN KEY (Equipo_Local) REFERENCES Equipos(Nombre),
